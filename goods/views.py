@@ -1,8 +1,8 @@
 from django_filters import rest_framework as filters
 from rest_framework.viewsets import ModelViewSet
 
-from .models import Category, Goods, Brand
-from .serializers import CategorySerializer, BrandSerializer, GoodsSerializer
+from .models import Category, Goods, Brand, Picture
+from .serializers import CategorySerializer, BrandSerializer, GoodsSerializer, PictureSerializer
 
 
 class CategoryViewSet(ModelViewSet):
@@ -32,3 +32,8 @@ class GoodsViewSet(ModelViewSet):
     serializer_class = GoodsSerializer
     filter_backends = (filters.DjangoFilterBackend,)
     filterset_class = GoodsFilter
+
+
+class PictureViewSet(ModelViewSet):
+    queryset = Picture.objects.all()
+    serializer_class = PictureSerializer

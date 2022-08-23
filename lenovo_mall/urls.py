@@ -19,7 +19,7 @@ from drf_spectacular.views import SpectacularAPIView, SpectacularSwaggerView, Sp
 from rest_framework.routers import DefaultRouter
 from rest_framework_simplejwt.views import token_obtain_pair, token_refresh
 
-from goods.views import CategoryViewSet, BrandViewSet, GoodsViewSet
+from goods.views import CategoryViewSet, BrandViewSet, GoodsViewSet, PictureViewSet
 from order.views import OrderViewSet
 from receiving_address.views import ReceivingAddressViewSet
 from shopping_cart.views import ShoppingCartViewSet
@@ -35,6 +35,7 @@ router.register('verification-code', VerificationCodeView)
 router.register('categories', CategoryViewSet)
 router.register('brands', BrandViewSet)
 router.register('goods', GoodsViewSet)
+router.register('pictures', PictureViewSet)
 
 router.register('shopping_carts', ShoppingCartViewSet)
 router.register('orders', OrderViewSet)
