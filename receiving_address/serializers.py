@@ -9,7 +9,7 @@ class ReceivingAddressSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
     def create(self, validated_data):
-        is_default = validated_data.pop('validated_data')
+        is_default = validated_data.pop('is_default')
         if is_default:
             ReceivingAddress.objects.filter(
                 related_user=validated_data['related_user'], is_default=True

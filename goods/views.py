@@ -8,6 +8,8 @@ from .serializers import CategorySerializer, BrandSerializer, GoodsSerializer, P
 class CategoryViewSet(ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
+    filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ('name',)
 
 
 class BrandViewSet(ModelViewSet):

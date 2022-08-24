@@ -24,7 +24,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = "django-insecure--l02ts+c222(q(0^tzq%xpu+*v(v(aj5ao3mv2f@gdu690ph_b"
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 ALLOWED_HOSTS = ['*']
 
@@ -37,17 +37,15 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
-
     'rest_framework',
     'django_filters',
     'corsheaders',
     'drf_spectacular',
-
     'user',
     'receiving_address',
     'goods',
     'shopping_cart',
-    'order'
+    'order',
 ]
 
 MIDDLEWARE = [
@@ -89,10 +87,10 @@ DATABASES = {
         # "ENGINE": "django.db.backends.sqlite3",
         # "NAME": BASE_DIR / "db.sqlite3",
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'lenovo_mall',
-        'USER': 'lenovo_mall',
-        'PASSWORD': 'kJ8WfC57yninYWZf',
-        'HOST': '101.42.252.116',
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
         'POST': 3306,
     }
 }
@@ -151,19 +149,21 @@ REST_FRAMEWORK = {
     'DEFAULT_FILTER_BACKENDS': ['django_filters.rest_framework.DjangoFilterBackend'],
     'DEFAULT_PAGINATION_CLASS': 'utils.pagination.MyPageNumberPagination',
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
-    'DEFAULT_AUTHENTICATION_CLASSES': ['rest_framework_simplejwt.authentication.JWTAuthentication']
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework_simplejwt.authentication.JWTAuthentication'
+    ],
 }
 
 SPECTACULAR_SETTINGS = {
     'TITLE': 'API接口文档',
     'DESCRIPTION': '''<h1>软件工程综合实践第13小组</h1>''',
     'VERSION': '1.3.0',
-    'SCHEMA_PATH_PREFIX': '/api'
+    'SCHEMA_PATH_PREFIX': '/api',
 }
 
 SIMPLE_JWT = {
     'REFRESH_TOKEN_LIFETIME': timedelta(days=7),
-    'ROTATE_REFRESH_TOKENS': True
+    'ROTATE_REFRESH_TOKENS': True,
 }
 
 CORS_ALLOW_ALL_ORIGINS = True
@@ -174,16 +174,14 @@ CORS_ALLOW_HEADERS = list(default_headers) + [
     'X_FILENAME',
     'Pragma',
     'x-token',
-    'Access-Control-Expose-Headers'
+    'Access-Control-Expose-Headers',
 ]
 
-CSRF_TRUSTED_ORIGINS = (
-    'https://mall.wiwilz.cn',
-)
+CSRF_TRUSTED_ORIGINS = ('https://mall.wiwilz.cn',)
 
 EMAIL_HOST = "smtp.qq.com"
 EMAIL_PORT = 25
-EMAIL_HOST_USER = "zhangww2029@qq.com"
-EMAIL_HOST_PASSWORD = "rodmywokrhmmbded"
+EMAIL_HOST_USER = ""
+EMAIL_HOST_PASSWORD = ""
 EMAIL_USE_TLS = True
-EMAIL_FROM = "zhangww2029@qq.com"
+EMAIL_FROM = ""

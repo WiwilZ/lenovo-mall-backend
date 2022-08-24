@@ -14,6 +14,7 @@ from .serializers import UserSerializer, UserRegisterSerializer, UserResetPasswo
 class UserViewSet(ModelViewSet):
     queryset = User.objects.all()
     filter_backends = (filters.DjangoFilterBackend,)
+    filterset_fields = ('email',)
 
     def get_serializer_class(self):
         if self.action == 'create':
